@@ -119,3 +119,13 @@ if(OATPP_BUILD_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif()
+
+install(TARGETS oatpp EXPORT  oatppExport
+        LIBRARY        DESTINATION lib
+        INCLUDES       DESTINATION include
+        PUBLIC_HEADER  DESTINATION include)
+install(EXPORT  oatppExport
+        FILE    oatpp-config.cmake
+        DESTINATION share/cmake/oatpp
+        EXPORT_LINK_INTERFACE_LIBRARIES
+)
